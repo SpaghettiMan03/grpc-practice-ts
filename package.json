@@ -13,6 +13,8 @@
     "@types/react-dom": "^17.0.0",
     "google-protobuf": "^3.17.3",
     "grpc-tools": "^1.11.2",
+    "grpc-web": "^1.2.1",
+    "protoc-gen-grpc-web": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -25,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "codegen": "grpc_tools_node_protoc -I ./proto --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --js_out=import_style=commonjs,binary:./generated --grpc_out=grpc_js:./generated --ts_out=service=grpc-node,mode=grpc-js:./generated ./proto/*.proto"
+    "codegen": "protoc   --grpc-web_out=import_style=typescript,mode=grpcwebtext:src/generated     --js_out=import_style=commonjs:src/generated -I=proto proto/*.proto"
   },
   "eslintConfig": {
     "extends": [
